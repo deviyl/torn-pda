@@ -10,11 +10,13 @@ class CombatReadyRevive {
   int? tornId;
   String? username;
   String? faction;
+  String? country;
 
   CombatReadyRevive({
     required this.tornId,
     required this.username,
     required this.faction,
+    required this.country,
   });
 
   Future<List<String?>> callMedic() async {
@@ -22,6 +24,7 @@ class CombatReadyRevive {
       ..userId = tornId.toString()
       ..userName = username
       ..faction = faction;
+      ..country = country;
 
     final bodyOut = combatReadyReviveModelToJson(modelOut);
 
