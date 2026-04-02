@@ -40,7 +40,9 @@ class CombatReadyRevive {
       final String code = response.statusCode.toString();
       String? message = json.decode(response.body)["message"];
 
-      if (code == "500") {
+      if (code == "403") {
+        message = "Your account is blacklisted from Combat Ready revive services. Contact CR leadership if you believe this is an error.";
+      } else if (code == "500") {
         message = "Error: an unknown error has occurred, please report this to Combat Ready leadership";
       }
 
